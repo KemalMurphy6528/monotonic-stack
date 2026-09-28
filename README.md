@@ -26,3 +26,10 @@ Finding the next greater element or the maximum in every sliding window is a com
 - `nextGreaterElement` uses strict inequality, so equal values do not count as greater. For `[1, 3, 3, 2]` the result is `[3, -1, -1, -1]`.
 - `slidingWindowMaximum` requires `k` to be a positive integer no larger than the input length; otherwise it throws a `RangeError`.
 - All functions reject arrays containing `NaN` or non-number values with a `TypeError`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
